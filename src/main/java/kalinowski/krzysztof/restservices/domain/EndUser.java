@@ -18,9 +18,11 @@ public class EndUser {
     private Long userId;
 
     @NotNull
+    @Column(length = 50)
     private String firstName;
 
     @NotNull
+    @Column(length = 50)
     private String lastName;
 
     @NotNull

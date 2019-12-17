@@ -1,6 +1,6 @@
 package kalinowski.krzysztof.restservices.service;
 
-import kalinowski.krzysztof.restservices.domain.EndUser;
+import kalinowski.krzysztof.restservices.api.model.EndUserDTO;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  */
 
 public interface EndUserService {
-    List<EndUser> getUsers();
-    EndUser findByPesel(String pesel);
+    List<EndUserDTO> getUsers();
+    EndUserDTO findByPesel(String pesel);
 }
