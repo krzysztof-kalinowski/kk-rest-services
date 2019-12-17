@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user")
 public class EndUserController {
 
     private final EndUserService endUserService;
@@ -22,13 +21,19 @@ public class EndUserController {
         this.endUserService = endUserService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity addEndUser(@RequestBody EndUserDTO endUserDTO){
         return (ResponseEntity.ok(endUserService.save(endUserDTO)));
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<EndUserDTO>> getEndUsers(){
         return ResponseEntity.ok(endUserService.getAll());
     }
+
+    @GetMapping("/find/{pesel}")
+    public ResponseEntity findEndUserByPesel(@PathVariable String pesel){
+        return ResponseEntity.ok(endUserService.findByPesel(pesel));
+    }
+
 }
