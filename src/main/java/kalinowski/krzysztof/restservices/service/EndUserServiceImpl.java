@@ -5,7 +5,6 @@ import kalinowski.krzysztof.restservices.repository.EndUserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Krzysztof Kalinowski on 17/12/2019.
@@ -13,7 +12,7 @@ import java.util.Optional;
 @Service
 public class EndUserServiceImpl implements EndUserService {
 
-    private EndUserRepository endUserRepository;
+    private final EndUserRepository endUserRepository;
 
     public EndUserServiceImpl(EndUserRepository endUserRepository) {
         this.endUserRepository = endUserRepository;

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private EndUserRepository endUserRepository;
+    private final EndUserRepository endUserRepository;
 
     public Bootstrap(EndUserRepository endUserRepository) {
         this.endUserRepository = endUserRepository;
