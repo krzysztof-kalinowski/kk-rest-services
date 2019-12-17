@@ -13,10 +13,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class EndUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-
     @NotNull
     @Column(length = 50)
     private String firstName;
@@ -25,6 +21,7 @@ public class EndUser {
     @Column(length = 50)
     private String lastName;
 
+    @Id
     @NotNull
     @Column(unique = true, length = 11)
     private String pesel;

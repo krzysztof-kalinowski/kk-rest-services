@@ -22,7 +22,6 @@ public class EndUserDTOToEndUser implements Converter<EndUserDTO, EndUser> {
             return null;
         }
         final EndUser endUser = new EndUser();
-        endUser.setUserId(source.getUserId());
         endUser.setFirstName(source.getFirstName());
         endUser.setLastName(source.getLastName());
         endUser.setPesel(source.getPesel());

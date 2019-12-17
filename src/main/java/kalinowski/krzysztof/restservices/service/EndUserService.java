@@ -9,6 +9,8 @@ import java.util.List;
  */
 
 public interface EndUserService {
-    List<EndUserDTO> getUsers();
+    List<EndUserDTO> getAll();
     EndUserDTO findByPesel(String pesel);
+    EndUserDTO save(EndUserDTO endUserDTO);
+
 }
