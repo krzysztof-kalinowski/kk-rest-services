@@ -1,7 +1,6 @@
 package kalinowski.krzysztof.restservices.domain;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -25,6 +24,6 @@ public class EndUser {
     private String lastName;
 
     @NotNull
-    @Column(unique = true)
+    @Column(unique = true, length = 11)
     private String pesel;
 }
