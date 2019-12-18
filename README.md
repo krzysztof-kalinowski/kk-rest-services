@@ -5,8 +5,11 @@ Project showing my abilities of creating REST services
 In my example i created database named usersdb
 
 2) In application.properties setup three properties:
+
 spring.datasource.url=jdbc:postgresql://localhost:5432/usersdb
+
 spring.datasource.username= your_username
+
 spring.datasource.password= your_password
 
 3) When you run project it will create table end_user.
