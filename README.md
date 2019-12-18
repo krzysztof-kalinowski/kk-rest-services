@@ -1,10 +1,10 @@
 # kk-rest-services
 Project showing my abilities of creating REST services
 
-1)To connect with PostgreSQL create (or pick existing) database.
+1) To connect with PostgreSQL create (or pick existing) database.
 In my example i created database named usersdb
 
-2)in application.properties setup three properties:
+2) In application.properties setup three properties:
 spring.datasource.url=jdbc:postgresql://localhost:5432/usersdb
 spring.datasource.username= your_username
 spring.datasource.password= your_password
