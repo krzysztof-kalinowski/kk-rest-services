@@ -3,8 +3,11 @@ package kalinowski.krzysztof.restservices.controller;
 import kalinowski.krzysztof.restservices.api.model.EndUserDTO;
 import kalinowski.krzysztof.restservices.service.EndUserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -21,9 +24,13 @@ public class EndUserController {
         this.endUserService = endUserService;
     }
 
-    @PostMapping("/add")
-    public ResponseEntity addEndUser(@RequestBody EndUserDTO endUserDTO){
-        return (ResponseEntity.ok(endUserService.save(endUserDTO)));
+    @PostMapping("/put")
+    public ResponseEntity addEndUser(@Valid @RequestBody EndUserDTO endUserDTO, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            ObjectError error = bindingResult.getAllErrors().get(0);
+            return ResponseEntity.status(400).body(error.getDefaultMessage()+", rejectedValue = "+endUserDTO.getPesel());
+        }
+        return ResponseEntity.ok(endUserService.save(endUserDTO));
     }
 
     @GetMapping("/list")
