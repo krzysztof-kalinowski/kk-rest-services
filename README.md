@@ -12,6 +12,7 @@ spring.datasource.password= your_password
 3) When you run project it will create table end_user.
 
 4) API:
+
 http://localhost:8080/list - lists all users
 
 http://localhost:8080/find/{PESEL} - find user by PESEL
