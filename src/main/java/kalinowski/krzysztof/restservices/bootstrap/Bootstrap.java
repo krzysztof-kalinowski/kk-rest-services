@@ -20,18 +20,15 @@ public class Bootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         if(endUserRepository.count() == 0){
-
             EndUser eu1 = new EndUser();
             eu1.setFirstName("Test");
             eu1.setLastName("User");
             eu1.setPesel("02070803628");
+
             endUserRepository.save(eu1);
 
             System.out.println("Data Loaded: "+endUserRepository.count());
         }
-
-
     }
 }

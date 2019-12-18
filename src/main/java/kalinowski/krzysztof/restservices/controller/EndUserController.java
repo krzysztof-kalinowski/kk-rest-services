@@ -15,7 +15,6 @@ import java.util.List;
  */
 
 @RestController
-@CrossOrigin(origins = "*")
 public class EndUserController {
 
     private final EndUserService endUserService;
