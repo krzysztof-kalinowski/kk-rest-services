@@ -28,7 +28,7 @@ public class EndUserController {
     public ResponseEntity addEndUser(@Valid @RequestBody EndUserDTO endUserDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             ObjectError error = bindingResult.getAllErrors().get(0);
-            return ResponseEntity.status(400).body(error.getDefaultMessage()+", rejectedValue = "+endUserDTO.getPesel());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error.getDefaultMessage()+", rejectedValue = "+endUserDTO.getPesel());
         }
         return new ResponseEntity(endUserService.save(endUserDTO), HttpStatus.CREATED);
     }
