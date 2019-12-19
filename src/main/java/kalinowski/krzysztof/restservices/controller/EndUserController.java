@@ -40,6 +40,10 @@ public class EndUserController {
 
     @GetMapping("/find/{pesel}")
     public ResponseEntity findEndUserByPesel(@PathVariable String pesel){
+        EndUserDTO endUserDTO = endUserService.findByPesel(pesel);
+        if(endUserDTO == null){
+            return new ResponseEntity(endUserDTO, HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok(endUserService.findByPesel(pesel));
     }
 
