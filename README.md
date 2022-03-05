@@ -16,11 +16,11 @@ spring.datasource.password= your_password
 
 4) API:
 
-http://localhost:8080/list - lists all users
+GET /user - lists all users
 
-http://localhost:8080/find/{PESEL} - find user by PESEL
+GET /user/{PESEL} - find user by PESEL
 
-http://localhost:8080/put - add / update user
+POST /user - add user
 
 In request Body put JSON:
 

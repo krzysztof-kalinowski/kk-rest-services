@@ -16,6 +16,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/user")
 public class EndUserController {
 
     private final EndUserService endUserService;
@@ -24,7 +25,7 @@ public class EndUserController {
         this.endUserService = endUserService;
     }
 
-    @PostMapping("/put")
+    @PostMapping
     public ResponseEntity addEndUser(@Valid @RequestBody EndUserDTO endUserDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             ObjectError error = bindingResult.getAllErrors().get(0);
@@ -33,12 +34,12 @@ public class EndUserController {
         return new ResponseEntity(endUserService.save(endUserDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<List<EndUserDTO>> getEndUsers(){
         return ResponseEntity.ok(endUserService.getAll());
     }
 
-    @GetMapping("/find/{pesel}")
+    @GetMapping("/{pesel}")
     public ResponseEntity findEndUserByPesel(@PathVariable String pesel){
         EndUserDTO endUserDTO = endUserService.findByPesel(pesel);
         if(endUserDTO == null){
